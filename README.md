@@ -31,7 +31,15 @@
 
 **6. Get the sensitive information using the **LFI****
 
+- [ ] User name and password 
+
 <img width="694" alt="image" src="https://user-images.githubusercontent.com/65080702/232574084-0d5348fa-f76b-4c2e-837f-10b4595714bb.png">
+
+- [ ] server information(vulnerable springframework,java-version etc.)
+
+<img width="743" alt="image" src="https://user-images.githubusercontent.com/65080702/232580003-459316aa-34d3-43b2-908d-21e56d324020.png">
+
+
 
 **Successfully Exploit LFI**
 
