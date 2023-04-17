@@ -1,0 +1,31 @@
+# Hack the Box_Inject.htb
+
+ 1. IP Address: 10.10.11.204 
+ 2. Host Name: inject.htb
+
+# LFI-Vulnerability_01  
+**Local File Inclusion (LFI)** allows an attacker to include files on a server through the web browser. This vulnerability exists when a web application includes a file without correctly sanitising the input, allowing and attacker to manipulate the input and inject path traversal characters and include other files from the web server. 
+## Steps: 
+
+
+
+
+ 1. Upload the image file
+ <img width="796" alt="image" src="https://user-images.githubusercontent.com/65080702/232567902-2c343c2a-b59e-4d6f-9cca-bf6db34e1da6.png">
+ 2. Intercept the Request from Burp
+ <img width="718" alt="image" src="https://user-images.githubusercontent.com/65080702/232568107-e2d257b5-1ffd-459d-ab45-4fa79c7b5cb9.png">
+ 3. Next copy the url and enter the below command:
+ 
+```curl http://inject.htb:8080/show_image?img=malicious.jpg | jq```
+
+<img width="844" alt="image" src="https://user-images.githubusercontent.com/65080702/232568925-be4bcf49-eb33-4308-84e1-ba553e2e5f41.png">
+
+4. We got the location of file's upload so we can try to get the root folder access using below command:
+
+``../`` 
+
+5. change the request into burp and try to access the root file
+
+<img width="642" alt="image" src="https://user-images.githubusercontent.com/65080702/232572534-21da055b-37f4-434e-a8ad-5714a82097b7.png">
+
+6. successfully access the root using **LFI** 
